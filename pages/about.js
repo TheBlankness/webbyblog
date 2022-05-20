@@ -22,7 +22,7 @@ export default function Home({ blogs }) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Webby Blog | Home</title>
+        <title>Webby Blog | About</title>
         <meta name="description" content="Made by Hazim" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
