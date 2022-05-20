@@ -74,16 +74,16 @@ export default function Home({ blogs }) {
         <Flex>
           {!isLargerThan1540 && (
             <Box p={"2"}>
-              <Image src={image3} />
+              <Image alt="img" src={image3} />
             </Box>
           )}
 
           <Box p={"2"}>
-            <Image src={image2} />
+            <Image alt="img" src={image2} />
           </Box>
           {!isLargerThan1540 && (
             <Box p={"2"}>
-              <Image src={image4} />
+              <Image alt="img" src={image4} />
             </Box>
           )}
         </Flex>

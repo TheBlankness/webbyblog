@@ -18,7 +18,7 @@ function BlogPost({ title, description, slug }) {
           router.push(`/blogs/${slug}`);
         }}
       >
-        <Image src={image6} />
+        <Image alt="img" src={image6} />
         <Text py="3" className={styles.blogTitle}>
           {title}
         </Text>
