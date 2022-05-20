@@ -1,22 +1,18 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/router";
-import { ApolloClient, InMemoryCache, gql, useQuery } from "@apollo/client";
+import {  gql, } from "@apollo/client";
 import Head from "next/head";
 import Image from "next/image";
-import { client } from "../index";
+import { client } from "../blogs";
 import theme from "../../pages/theme";
 import {
   Container,
   Flex,
-  Grid,
   HStack,
   Center,
   Box,
   Text,
-  useMediaQuery,
-  SimpleGrid,
   Button,
-  Spacer,
 } from "@chakra-ui/react";
 import styles from "../../styles/Blog.module.css";
 import Header from "../../Components/Header";
@@ -83,7 +79,7 @@ function BlogDetails() {
             </Container>
 
             <Box p={"2"} my="3">
-              <Image src={image7} />
+              <Image alt="img" src={image7} />
             </Box>
             <Container maxW="600px" p={0} m="0" ml={2}>
               <Text className={styles.description}>
@@ -110,7 +106,7 @@ function BlogDetails() {
           </Box>
           <Box px={"5"} pt="2" background={theme.colors.sub} h="800px">
             <Box p={"2"}>
-              <Image src={image8} />
+              <Image alt="img" src={image8} />
             </Box>
             <Text pb={3} className={styles.subtitle}>
               Hi, Thanks for reading!

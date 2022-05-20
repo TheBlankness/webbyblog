@@ -1,4 +1,4 @@
-export default {
+const theme = {
     colors: {
       transparent: 'transparent',
       black: '#000',
@@ -7,3 +7,5 @@ export default {
       sub:'#FEF2F0',
     },
   }
+
+  export default theme;
