@@ -59,10 +59,12 @@ export default function Home({ blogs }) {
       )}
 
       <Container mt={"130px"}>
-        <Text mb={6} className={styles.title2}>Instant Routing via Next.Js</Text>
+        <Text mb={6} className={styles.title2}>
+          Instant Routing via Next.Js
+        </Text>
 
         <Text>
-          "Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem
           accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae
           ab illo inventore veritatis et quasi architecto beatae vitae dicta
           sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
@@ -74,7 +76,7 @@ export default function Home({ blogs }) {
           exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex
           ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in
           ea voluptate velit esse quam nihil molestiae consequatur, vel illum
-          qui dolorem eum fugiat quo voluptas nulla pariatur?"
+          qui dolorem eum fugiat quo voluptas nulla pariatur?
         </Text>
       </Container>
 
