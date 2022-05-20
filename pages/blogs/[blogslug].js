@@ -4,7 +4,7 @@ import {  gql, } from "@apollo/client";
 import Head from "next/head";
 import Image from "next/image";
 import { client } from "../blogs";
-import theme from "../../pages/theme";
+import theme from "../../Components/theme";
 import {
   Container,
   Flex,

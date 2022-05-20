@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../styles/Home.module.css";
 import { Box, Flex, Spacer, Text } from "@chakra-ui/react";
-import theme from "../pages/theme";
+import theme from "./theme";
 import Image from "next/image";
 import image6 from "../public/image 6.png";
 import { useRouter } from "next/router";

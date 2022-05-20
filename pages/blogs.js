@@ -25,7 +25,7 @@ import {
   Container,
 } from "@chakra-ui/react";
 import BlogPost from "../Components/BlogPost";
-import theme from "./theme";
+import theme from "../Components/theme";
 
 export default function Home({ blogs }) {
   const [isLargerThan1540] = useMediaQuery("(max-width: 1540px)");
