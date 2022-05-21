@@ -102,8 +102,8 @@ export default function Home({ blogs }) {
 
       <Center pt={"65px"}>
         <Flex flexDirection={"column"}>
-          {loading &&  <Container>
-               <Center pl={'20px'}>
+          {loading &&  <Box w={(isLargerThan1540) ? '250px' : '1200px'} h='600px' >
+               <Center>
                   <Spinner
                 
                 thickness="4px"
@@ -111,7 +111,8 @@ export default function Home({ blogs }) {
                 size="xl"
               />
                </Center>
-              </Container>}
+               
+              </Box>}
           <SimpleGrid columns={[1, 2, 3]} spacing="60px">
             {!loading &&
               (blogslist.map((blog, index) => {

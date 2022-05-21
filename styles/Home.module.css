@@ -37,6 +37,14 @@
   line-height: 40px;
 }
 
+.headerTitle {
+  font-family: "Playfair Display SC";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 40px;
+}
+
 .title2 {
   font-family: "Playfair Display SC";
   font-style: bold;
@@ -51,6 +59,24 @@
   font-weight: 400;
   font-size: 20px;
   line-height: 27px;
+}
+
+.subtitleActive{
+  font-family: "Playfair Display SC";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 27px;
+  color: #bb5a3a;
+}
+
+@media (max-width: 700px) {
+  .subtitle {
+    font-size: 13px;
+  }
+  .headerTitle{
+    font-size: 15px;
+  }
 }
 
 .blogTitle {
@@ -143,3 +169,16 @@
     flex-direction: column;
   }
 }
+
+.spinnerdiv {
+  width: '1200px';
+  height: '680px';
+}
+
+@media (max-width: 1000px) {
+  .spinnerdiv {
+    width: '600px';
+    height: '100%';
+  }
+}
+

@@ -13,6 +13,7 @@ import {
   Box,
   Text,
   Button,
+  Skeleton,
 } from "@chakra-ui/react";
 import styles from "../../styles/Blog.module.css";
 import Header from "../../Components/Header";
@@ -29,6 +30,7 @@ function BlogDetails() {
   const router = useRouter();
   const { blogslug } = router.query;
   const [blogDetails, setBlogDetails] = useState({});
+  const [loading, setLoading] = useState(true);
 
   const fetchBlog = useCallback(async () => {
     if (blogslug == undefined) return;
@@ -53,6 +55,7 @@ function BlogDetails() {
     });
 
     setBlogDetails(data.blog);
+    setLoading(false)
   }, [blogslug]);
 
   useEffect(() => {
@@ -71,8 +74,11 @@ function BlogDetails() {
       <Center pt={"40px"}>
         <Flex>
           <Box pr={"3"}>
+              {loading && <Skeleton h='30px' mb="7" startColor={theme.colors.main}  endColor={theme.colors.sub} />}
             <Text className={styles.title}>{blogDetails.blog_title}</Text>
             <Container maxW="600px" p={0} m="0" ml={2}>
+            {loading && <Skeleton h='10px' mb="2" endColor={theme.colors.sub} />  }
+            {loading && <Skeleton h='10px' endColor={theme.colors.sub}/>  }
               <Text className={styles.description}>
                 {blogDetails.blog_description}
               </Text>
@@ -112,6 +118,7 @@ function BlogDetails() {
               Hi, Thanks for reading!
             </Text>
             <Container h={"100px"} maxW="170px" p={0} m="0" ml={2}>
+            {loading && <Skeleton h='15px' mb="3" endColor={theme.colors.main}/>}
               <Text className={styles.shortdescription}>
                 {blogDetails.blog_short_description}
               </Text>
@@ -151,6 +158,9 @@ function BlogDetails() {
           </Box>
         </Flex>
       </Center>
+
+      <footer className={styles.footer}>Copyright 2022 Ahmad Hazim</footer>
+
     </div>
   );
 }
