@@ -63,7 +63,7 @@ function BlogDetails() {
 
   useEffect(() => {
     fetchBlog();
-  }, [fetchBlog]);
+  }, [fetchBlog,isLargerThan1540]);
 
   return (
     <div className={styles.container}>
