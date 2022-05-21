@@ -1,46 +1,54 @@
 .container {
-    padding: 0 2rem;
-  }
+  padding: 0 2rem;
+}
 
 .title {
-    font-family: 'Playfair Display';
-    font-style: normal;
-    font-weight: 700;
-    font-size: 47px;
-    line-height: 63px;
-    text-transform: capitalize;
-  }
-
-.description{
-    font-family: 'Playfair Display';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 19px;
-    line-height: 20px;
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 47px;
+  line-height: 63px;
+  text-transform: capitalize;
 }
 
-.subtitle{
-    font-family: 'Playfair Display';
-    font-style: normal;
-    font-weight: 600;
-    font-size: 24px;
-    line-height: 32px;
+.description {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 20px;
 }
 
-.shortdescription{
-    font-family: 'Playfair Display';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 27px;
+.subtitle {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 32px;
+}
+
+.shortdescription {
+  font-family: "Playfair Display";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 27px;
 }
 
 .footer {
-    display: flex;
-    flex: 1;
-    padding: 2rem 0;
-    margin-top: 25vh;
-    border-top: 1px solid #eaeaea;
-    justify-content: center;
-    align-items: center;
-  }
+  display: flex;
+  flex: 1;
+  padding: 2rem 0;
+  margin-top: 25vh;
+  border-top: 1px solid #eaeaea;
+  justify-content: center;
+  align-items: center;
+}
+
+.blogdate {
+  font-family: "Playfair Display";
+  font-style: italic;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 19px;
+}
