@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useRouter } from "next/router";
-import {  gql, } from "@apollo/client";
+import { gql } from "@apollo/client";
 import Head from "next/head";
 import Image from "next/image";
 import { client } from "../blogs";
@@ -14,6 +14,7 @@ import {
   Text,
   Button,
   Skeleton,
+  useMediaQuery
 } from "@chakra-ui/react";
 import styles from "../../styles/Blog.module.css";
 import Header from "../../Components/Header";
@@ -31,6 +32,8 @@ function BlogDetails() {
   const { blogslug } = router.query;
   const [blogDetails, setBlogDetails] = useState({});
   const [loading, setLoading] = useState(true);
+
+  const [isLargerThan1540] = useMediaQuery("(max-width: 1540px)");
 
   const fetchBlog = useCallback(async () => {
     if (blogslug == undefined) return;
@@ -55,7 +58,7 @@ function BlogDetails() {
     });
 
     setBlogDetails(data.blog);
-    setLoading(false)
+    setLoading(false);
   }, [blogslug]);
 
   useEffect(() => {
@@ -72,13 +75,22 @@ function BlogDetails() {
 
       <Header />
       <Center pt={"40px"}>
-        <Flex>
-          <Box pr={"3"}>
-              {loading && <Skeleton h='30px' mb="7" startColor={theme.colors.main}  endColor={theme.colors.sub} />}
+        <Flex flexDirection={(isLargerThan1540) ? 'column' : 'row'}>
+          <Box pr={"3"} mb={"50px"}>
+            {loading && (
+              <Skeleton
+                h="30px"
+                mb="7"
+                startColor={theme.colors.main}
+                endColor={theme.colors.sub}
+              />
+            )}
             <Text className={styles.title}>{blogDetails.blog_title}</Text>
             <Container maxW="600px" p={0} m="0" ml={2}>
-            {loading && <Skeleton h='10px' mb="2" endColor={theme.colors.sub} />  }
-            {loading && <Skeleton h='10px' endColor={theme.colors.sub}/>  }
+              {loading && (
+                <Skeleton h="10px" mb="2" endColor={theme.colors.sub} />
+              )}
+              {loading && <Skeleton h="10px" endColor={theme.colors.sub} />}
               <Text className={styles.description}>
                 {blogDetails.blog_description}
               </Text>
@@ -110,15 +122,20 @@ function BlogDetails() {
               </Text>
             </Container>
           </Box>
-          <Box px={"5"} pt="2" background={theme.colors.sub} h="800px">
+          <Box px={"5"} pt="2" background={theme.colors.sub} h="800px" maxW={'300px'}>
+            <Center>
             <Box p={"2"}>
               <Image alt="img" src={image8} />
             </Box>
+            </Center>
+          
             <Text pb={3} className={styles.subtitle}>
               Hi, Thanks for reading!
             </Text>
             <Container h={"100px"} maxW="170px" p={0} m="0" ml={2}>
-            {loading && <Skeleton h='15px' mb="3" endColor={theme.colors.main}/>}
+              {loading && (
+                <Skeleton h="15px" mb="3" endColor={theme.colors.main} />
+              )}
               <Text className={styles.shortdescription}>
                 {blogDetails.blog_short_description}
               </Text>
@@ -156,11 +173,11 @@ function BlogDetails() {
               </Center>
             </Box>
           </Box>
+          
         </Flex>
       </Center>
 
       <footer className={styles.footer}>Copyright 2022 Ahmad Hazim</footer>
-
     </div>
   );
 }
