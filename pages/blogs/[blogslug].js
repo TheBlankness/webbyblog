@@ -14,7 +14,7 @@ import {
   Text,
   Button,
   Skeleton,
-  useMediaQuery
+  useMediaQuery,
 } from "@chakra-ui/react";
 import styles from "../../styles/Blog.module.css";
 import Header from "../../Components/Header";
@@ -33,19 +33,16 @@ function BlogDetails() {
   const [blogDetails, setBlogDetails] = useState({});
   const [loading, setLoading] = useState(true);
 
-  
-
   const [isLargerThan1540, setIsLargerThan1540] = useState(false);
   const [mediaQuery] = useMediaQuery("(max-width: 1540px)");
 
   useEffect(() => {
-    if(mediaQuery !== isLargerThan1540){
+    if (mediaQuery !== isLargerThan1540) {
       setIsLargerThan1540(mediaQuery);
     }
-  }, [mediaQuery])
+  }, [mediaQuery]);
 
-
-console.log(isLargerThan1540);
+  console.log(isLargerThan1540);
   const fetchBlog = useCallback(async () => {
     if (blogslug == undefined) return;
     console.log("servercall");
@@ -86,7 +83,7 @@ console.log(isLargerThan1540);
 
       <Header />
       <Center pt={"40px"}>
-        <Flex flexDirection={(isLargerThan1540) ? 'column' : 'row'}>
+        <Flex flexDirection={isLargerThan1540 ? "column" : "row"}>
           <Box pr={"3"} mb={"50px"}>
             {loading && (
               <Skeleton
@@ -133,13 +130,19 @@ console.log(isLargerThan1540);
               </Text>
             </Container>
           </Box>
-          <Box px={"5"} pt="2" background={theme.colors.sub} h="800px" maxW={'300px'}>
+          <Box
+            px={"5"}
+            pt="2"
+            background={theme.colors.sub}
+            h="800px"
+            maxW={"300px"}
+          >
             <Center>
-            <Box p={"2"}>
-              <Image alt="img" src={image8} />
-            </Box>
+              <Box p={"2"}>
+                <Image alt="img" src={image8} />
+              </Box>
             </Center>
-          
+
             <Text pb={3} className={styles.subtitle}>
               Hi, Thanks for reading!
             </Text>
@@ -184,7 +187,6 @@ console.log(isLargerThan1540);
               </Center>
             </Box>
           </Box>
-          
         </Flex>
       </Center>
 

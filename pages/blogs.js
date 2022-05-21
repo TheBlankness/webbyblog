@@ -3,7 +3,6 @@ import {
   ApolloClient,
   InMemoryCache,
   gql,
-  ApolloProvider,
 } from "@apollo/client";
 import Head from "next/head";
 import Image from "next/image";
@@ -22,12 +21,11 @@ import {
   SimpleGrid,
   Button,
   Spacer,
-  Container,
 } from "@chakra-ui/react";
 import BlogPost from "../Components/BlogPost";
 import theme from "../Components/theme";
 
-export default function Home({ blogs }) {
+export default function Blogs({ blogs }) {
   const [isLargerThan1540] = useMediaQuery("(max-width: 1540px)");
 
   const initState = blogs;
@@ -102,20 +100,16 @@ export default function Home({ blogs }) {
 
       <Center pt={"65px"}>
         <Flex flexDirection={"column"}>
-          {loading &&  <Box w={(isLargerThan1540) ? '250px' : '1200px'} h='600px' >
-               <Center>
-                  <Spinner
-                
-                thickness="4px"
-                color={theme.colors.main}
-                size="xl"
-              />
-               </Center>
-               
-              </Box>}
+          {loading && (
+            <Box w={isLargerThan1540 ? "250px" : "1200px"} h="600px">
+              <Center>
+                <Spinner thickness="4px" color={theme.colors.main} size="xl" />
+              </Center>
+            </Box>
+          )}
           <SimpleGrid columns={[1, 2, 3]} spacing="60px">
             {!loading &&
-              (blogslist.map((blog, index) => {
+              blogslist.map((blog, index) => {
                 return (
                   <Box key={blog.blog_id} pt={index % 2 === 0 ? "0" : "30px"}>
                     <BlogPost
@@ -125,8 +119,7 @@ export default function Home({ blogs }) {
                     />
                   </Box>
                 );
-              })
-            )}
+              })}
           </SimpleGrid>
 
           <Flex pt={"5"} gap={"6"}>

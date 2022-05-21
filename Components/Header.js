@@ -1,7 +1,6 @@
 import React from "react";
 import styles from "../styles/Home.module.css";
 import { useRouter } from "next/router";
-
 import { Box, Flex, Spacer, Text } from "@chakra-ui/react";
 
 function Header() {
@@ -29,7 +28,9 @@ function Header() {
           router.push(`/`);
         }}
       >
-        <Text className={blogslug == "/" ? styles.subtitleActive : styles.subtitle}>
+        <Text
+          className={blogslug == "/" ? styles.subtitleActive : styles.subtitle}
+        >
           Home
         </Text>
       </Box>
@@ -42,7 +43,13 @@ function Header() {
           router.push(`/blogs`);
         }}
       >
-        <Text className={blogslug == "/blogs" ? styles.subtitleActive : styles.subtitle}>Blogs</Text>
+        <Text
+          className={
+            blogslug == "/blogs" ? styles.subtitleActive : styles.subtitle
+          }
+        >
+          Blogs
+        </Text>
       </Box>
 
       <Box
@@ -53,7 +60,13 @@ function Header() {
           router.push(`/about`);
         }}
       >
-        <Text className={blogslug == "/about" ? styles.subtitleActive : styles.subtitle}>About</Text>
+        <Text
+          className={
+            blogslug == "/about" ? styles.subtitleActive : styles.subtitle
+          }
+        >
+          About
+        </Text>
       </Box>
     </Flex>
   );
