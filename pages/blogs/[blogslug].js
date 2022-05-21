@@ -33,8 +33,19 @@ function BlogDetails() {
   const [blogDetails, setBlogDetails] = useState({});
   const [loading, setLoading] = useState(true);
 
-  const [isLargerThan1540] = useMediaQuery("(max-width: 1540px)");
+  
 
+  const [isLargerThan1540, setIsLargerThan1540] = useState(false);
+  const [mediaQuery] = useMediaQuery("(max-width: 1540px)");
+
+  useEffect(() => {
+    if(mediaQuery !== isLargerThan1540){
+      setIsLargerThan1540(mediaQuery);
+    }
+  }, [mediaQuery])
+
+
+console.log(isLargerThan1540);
   const fetchBlog = useCallback(async () => {
     if (blogslug == undefined) return;
     console.log("servercall");
@@ -63,7 +74,7 @@ function BlogDetails() {
 
   useEffect(() => {
     fetchBlog();
-  }, [fetchBlog,isLargerThan1540]);
+  }, [fetchBlog]);
 
   return (
     <div className={styles.container}>
