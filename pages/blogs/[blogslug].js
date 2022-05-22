@@ -87,7 +87,7 @@ function BlogDetails() {
         <Flex flexDirection={isLargerThan1540 ? "column" : "row"}>
         
           <Box pr={"3"} mb={"50px"}>
-          <Text pl={2} className={styles.blogdate}>{format(new Date(blogDetails.blog_date), 'PPP') }</Text>
+         {!loading && <Text pl={2} className={styles.blogdate}>{format(new Date(blogDetails.blog_date), 'PPP') }</Text>} 
             {loading && (
               <Skeleton
                 h="30px"
