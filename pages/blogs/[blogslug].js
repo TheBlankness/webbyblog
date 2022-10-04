@@ -26,7 +26,7 @@ import {
   FaLinkedinIn,
   FaWhatsapp,
 } from "react-icons/fa";
-import { format } from 'date-fns'
+import { format } from "date-fns";
 
 function BlogDetails() {
   const router = useRouter();
@@ -41,9 +41,8 @@ function BlogDetails() {
     if (mediaQuery !== isLargerThan1540) {
       setIsLargerThan1540(mediaQuery);
     }
-  }, [mediaQuery]);
+  }, [mediaQuery, isLargerThan1540]);
 
-  console.log(isLargerThan1540);
   const fetchBlog = useCallback(async () => {
     if (blogslug == undefined) return;
     console.log("servercall");
@@ -85,9 +84,12 @@ function BlogDetails() {
       <Header />
       <Center pt={"40px"}>
         <Flex flexDirection={isLargerThan1540 ? "column" : "row"}>
-        
           <Box pr={"3"} mb={"50px"}>
-         {!loading && <Text pl={2} className={styles.blogdate}>{format(new Date(blogDetails.blog_date), 'PPP') }</Text>} 
+            {!loading && (
+              <Text pl={2} className={styles.blogdate}>
+                {format(new Date(blogDetails.blog_date), "PPP")}
+              </Text>
+            )}
             {loading && (
               <Skeleton
                 h="30px"
@@ -128,12 +130,13 @@ function BlogDetails() {
                 Every layout comes with the latest social features built in.
                 Readers will be able to easily share posts on social networks
                 like Facebook and Twitter, view how many people have liked a
-                post, made comments and more. With Wix, building your online
+                post, made comments and more. With blogs, building your online
                 community has never been easier.
               </Text>
             </Container>
           </Box>
-          <Box
+
+          {/* <Box
             px={"5"}
             pt="2"
             background={theme.colors.sub}
@@ -185,12 +188,15 @@ function BlogDetails() {
                   </Button>
                   <Button colorScheme="whatsapp">
                     <FaWhatsapp />
-                  </Button>
+                  </Button> 
                 </HStack>
               </Center>
             </Box>
-          </Box>
+          </Box> */}
         </Flex>
+      </Center>
+      <Center>
+        <Button>Print PDF</Button>
       </Center>
 
       <footer className={styles.footer}>Copyright 2022 Ahmad Hazim</footer>

@@ -20,16 +20,30 @@ import {
 } from "@chakra-ui/react";
 import BlogPost from "../Components/BlogPost";
 import theme from "../Components/theme";
+import { useRouter } from "next/router";
+import {
+  selectUserSession,
+  saveusertoken,
+  login as LoginUser,
+} from "../Components/userSession/userSessionSlice";
+
+import { useAppSelector, useAppDispatch } from "../app/hooks";
 
 export default function Blogs({ blogs }) {
-  const [isLargerThan1540] = useMediaQuery("(max-width: 1540px)");
+  const isLargerThan1540 = false;
+  const userSession = useAppSelector(selectUserSession);
 
+  const router = useRouter();
   const initState = blogs;
   const initPage = 0;
 
   const [blogslist, setBlogslist] = useState(initState);
   const [page, setPage] = useState(initPage);
   const [loading, setLoading] = useState(false);
+  console.log(userSession.islogin);
+  if (!userSession.islogin) {
+    // router.push(`/login`);
+  }
 
   const fetchBlogs = useCallback(async () => {
     setLoading(true);

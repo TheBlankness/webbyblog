@@ -16,7 +16,7 @@ import {
 } from "@chakra-ui/react";
 
 export default function Home() {
-  const [isLargerThan1540] = useMediaQuery("(max-width: 1540px)");
+  const isLargerThan1540 = false;
 
   return (
     <div className={styles.container}>

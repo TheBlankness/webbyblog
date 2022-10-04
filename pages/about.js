@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Header from "../Components/Header";
@@ -14,9 +14,24 @@ import {
   useMediaQuery,
   Container,
 } from "@chakra-ui/react";
+import { createEditor } from "slate";
+import { Slate, Editable, withReact } from "slate-react";
+
+const initialValue = [
+  {
+    type: "paragraph",
+    children: [
+      {
+        text: "sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est.",
+      },
+    ],
+  },
+];
 
 export default function About() {
-  const [isLargerThan1540] = useMediaQuery("(max-width: 1540px)");
+  const isLargerThan1540 = false;
+
+  const [editor] = useState(() => withReact(createEditor()));
 
   return (
     <div className={styles.container}>
@@ -102,6 +117,12 @@ export default function About() {
             pariatur?
           </Text>
         </Container>
+      </Center>
+
+      <Center p={10}>
+        <Slate editor={editor} value={initialValue}>
+          <Editable />
+        </Slate>
       </Center>
 
       <footer className={styles.footer}>Copyright 2022 Ahmad Hazim</footer>
